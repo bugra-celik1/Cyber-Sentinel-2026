@@ -12,3 +12,8 @@
 * **find**: Dosya ismine gore arama yapar. (Ornek: find /etc -name '*.conf')
 * **grep**: Dosya icindeki metni arar. (Ornek: grep 'password' dosya.txt)
 * **Pipe (|)**: Komutlar arasi veri koprusu kurar. Veriyi suzmemizi saglar.
+## 1. Gun / 4. Kisim: Surec Yonetimi (Process Management)
+* **ps aux**: Sistemde calisan tum sureclerin anlik fotografini cekme ve analiz etme.
+* **PID (Process ID)**: Her surecin benzersiz kimlik numarasini tespit ederek hedefleme yapma.
+* **kill Operasyonu**: Supheli veya donan surecleri PID uzerinden sonlandirma teknikleri.
+* **Analiz**: Arka planda sessizce calisan (sleep &) sureclerin siber guvenlik riskleri ve tespiti uzerine pratik yapildi.
