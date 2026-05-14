@@ -8,3 +8,7 @@
 * **Erişim Kontrolü (chmod)**: 640 ve 000 senaryoları ile 'En Az Yetki İlkesi' (Principle of Least Privilege) Laboratuvar ortamında test edildi.
 * **Yetki Aşımı (Privilege Escalation)**:Sudo mekanizmasının kısıtlı alanlara erişimdeki rolü ve riskleri gözlemlendi.
 * **Kritik Analiz**: Sudo yetkisinin ele geçirilmesi, sistemdeki tüm dosya izinlerini (chmod 000 dahil) hükümsüz kılar.
+## 1. Gun / 3. Kisim: Veri Dedektifligi (find & grep)
+* **find**: Dosya ismine gore arama yapar. (Ornek: find /etc -name '*.conf')
+* **grep**: Dosya icindeki metni arar. (Ornek: grep 'password' dosya.txt)
+* **Pipe (|)**: Komutlar arasi veri koprusu kurar. Veriyi suzmemizi saglar.
