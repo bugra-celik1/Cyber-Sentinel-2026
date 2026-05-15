@@ -1,19 +1,31 @@
-# 60 Günlük Siber Operasyon Kampı - Başlangıç
-## 1. Gun: Linux Temelleri ve Kritik Dizinler
-* **/bin**: Sistemin komut cephaneliğidir (ls,cat,mkdir burada bulunur).
-* **/var/log**: Sistemin kara kutusudur.Tüm olay kayıtları burada tutulur .Saldırganlar iz silmek için burayı hedefler. 
-* **/etc**: Sistemin ayar ve kural merkezidir.Kullanıcı yetkileri (/etc/passwd) buradan yönetilir.
-## 1. Gun / 2.Kisim: Yetki Sistemi ve Erişim Analizi
-* **UID 0 Analizi**: /etc/passwd dosyası üzerinden root kullanıcısının sistemdeki mutlak yetkisi doğrulandı.
-* **Erişim Kontrolü (chmod)**: 640 ve 000 senaryoları ile 'En Az Yetki İlkesi' (Principle of Least Privilege) Laboratuvar ortamında test edildi.
-* **Yetki Aşımı (Privilege Escalation)**:Sudo mekanizmasının kısıtlı alanlara erişimdeki rolü ve riskleri gözlemlendi.
-* **Kritik Analiz**: Sudo yetkisinin ele geçirilmesi, sistemdeki tüm dosya izinlerini (chmod 000 dahil) hükümsüz kılar.
-## 1. Gun / 3. Kisim: Veri Dedektifligi (find & grep)
-* **find**: Dosya ismine gore arama yapar. (Ornek: find /etc -name '*.conf')
-* **grep**: Dosya icindeki metni arar. (Ornek: grep 'password' dosya.txt)
-* **Pipe (|)**: Komutlar arasi veri koprusu kurar. Veriyi suzmemizi saglar.
-## 1. Gun / 4. Kisim: Surec Yonetimi (Process Management)
-* **ps aux**: Sistemde calisan tum sureclerin anlik fotografini cekme ve analiz etme.
-* **PID (Process ID)**: Her surecin benzersiz kimlik numarasini tespit ederek hedefleme yapma.
-* **kill Operasyonu**: Supheli veya donan surecleri PID uzerinden sonlandirma teknikleri.
-* **Analiz**: Arka planda sessizce calisan (sleep &) sureclerin siber guvenlik riskleri ve tespiti uzerine pratik yapildi.
+# 🛡️ Siber Güvenlik ve Pentest Yolculuğu - Portföy
+
+Bu döküman, 2026 Siber Güvenlik Kampı süresince gerçekleştirilen teknik çalışmaları, laboratuvar operasyonlarını ve sistem analizlerini içermektedir.
+
+---
+
+## 📑 İçindekiler
+* [Modül 01: Linux Sistem Güvenliği ve Operasyonel Temeller](#modül-01-linux-sistem-güvenliği-ve-operasyonel-temeller)
+* [Modül 02: Ağ Temelleri ve Keşif (Yükleniyor...)](#modül-02-ağ-temelleri-ve-keşif)
+
+---
+
+## Modül 01: Linux Sistem Güvenliği ve Operasyonel Temeller
+**Tarih:** 15 Mayıs 2026  
+**Odak Noktası:** Yetki Hiyerarşisi, Süreç Yönetimi ve Veri Dedektifliği
+
+### 🛠 Teknik Yetkinlikler
+* **Hiyerarşi Analizi:** `/etc/passwd` üzerinden UID 0 (Root) yetki kontrolleri.
+* **Erişim Sıkılaştırma (Hardening):** `chmod` ile "En Az Yetki İlkesi" (Least Privilege) uygulamaları.
+* **Veri Madenciliği:** `grep` ve `find` araçlarıyla log dosyası analizi.
+* **Süreç İmhası:** `ps aux` ve `kill` ile şüpheli süreçlerin (Backdoor/Sleep) tespiti.
+
+### 🚩 Uygulamalı Operasyon: "Köstebek Avı" (Final Challenge)
+Sistem üzerinde kilitli bir veri kaynağına ulaşma ve zararlı bir süreci durdurma simülasyonu başarıyla tamamlanmıştır.
+
+1. **Erişim ve Sızdırma:** `chmod 400` yetkisine sahip kısıtlı bir log dosyası, `sudo` ve `grep` kullanılarak yetki aşımı (Privilege Escalation) yöntemiyle analiz edilmiş ve kritik token ele geçirilmiştir.
+   - **Ele Geçirilen Veri:** `BUGRA_FINAL_BASARI_2026`
+2. **Tehdit Avcılığı:** Arka planda sızma girişimi olarak simüle edilen `sleep 666` süreci PID üzerinden tespit edilerek sonlandırılmıştır.
+3. **İz Silme:** `rm -rf` operasyonu ile sistem üzerinde hiçbir dijital kanıt bırakılmadan süreç tamamlanmıştır.
+
+---
