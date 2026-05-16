@@ -29,3 +29,4 @@ Sistem üzerinde kilitli bir veri kaynağına ulaşma ve zararlı bir süreci du
 3. **İz Silme:** `rm -rf` operasyonu ile sistem üzerinde hiçbir dijital kanıt bırakılmadan süreç tamamlanmıştır.
 
 ---
+ 
