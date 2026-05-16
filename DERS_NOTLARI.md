@@ -29,4 +29,16 @@ Sistem üzerinde kilitli bir veri kaynağına ulaşma ve zararlı bir süreci du
 3. **İz Silme:** `rm -rf` operasyonu ile sistem üzerinde hiçbir dijital kanıt bırakılmadan süreç tamamlanmıştır.
 
 ---
- 
+## 🛰️ 2. Gün: Ağ Temelleri ve Trafik Analizi Laboratuvarı
+
+### 1. Teorik Çerçeve (Mülakat Notları)
+* **OSI Modeli Güvenlik Bakışı:** * Katman 2 (Data Link): MAC adresleri üzerinden yerel ağ iletişimi (Risk: ARP Poisoning).
+  * Katman 3 (Network): IP adresleri üzerinden yönlendirme (Risk: IP Spoofing).
+  * Katman 4 (Transport): TCP (Garantici/Üçlü El Sıkışma) ve UDP (Hızlı/Bağlantısız) protokol yönetimi (Risk: SYN Flood DDoS).
+* **Portlar:** Sistem üzerindeki 0-65535 arası sanal kapılar. Servislerin dış dünyaya açılan yüzüdür. Saldırı yüzeyini daraltmak için sadece zorunlu portlar (Örn: 443 HTTPS) açık tutulmalıdır.
+
+### 2. Pratik Terminal Komutları ve Tehdit Avcılığı
+* `ip a`: Sistemin fiziksel (MAC) ve mantıksal (IP) adreslerini doğrulamak için kullanılır.
+* `ss -tulpn`: Sistemde aktif olarak "Dinleme (LISTEN)" modunda olan TCP/UDP portlarını ve bu portları işgal eden süreçlerin PID numaralarını listeler. Şüpheli arka kapıların (Backdoor) tespitinde ilk adımdır.
+* `nc -lvp [Port]`: Netcat ile belirtilen portta test amaçlı dinleme başlatır.
+* `dig [Domain]`: Hedef sistem hakkında DNS (Port 53/UDP) üzerinden bilgi toplama (A, MX, TXT kayıtları) ve OSINT çalışmalarında kullanılır. 
